@@ -1,0 +1,26 @@
+{{set . "title" "Home"}}
+{{template "header.html" .}}
+
+<script>
+  var index={{.index}};
+  var pictures={{.pictures}};
+  var Arr=pictures.split('\n')
+  function next() {
+	index = index + 1;
+	document.getElementById("picture").src = Arr[index];
+  }
+</script>
+
+<body>
+  <img id="picture" src="/public/img/favicon.png" onclick="next()">
+</body>
+
+<div class="container">
+  <div class="row">
+    <div class="span6">
+      {{template "flash.html" .}}
+    </div>
+  </div>
+</div>
+
+{{template "footer.html" .}}
